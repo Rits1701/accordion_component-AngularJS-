@@ -1,0 +1,29 @@
+<div class="accordionContainer">
+	<div class="accordion-scroll">
+		<div class="panel-group" id="accordion_analyze" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default" ng-repeat="ac in state.accordion track by $index" >
+				 <a class="anchorClass" role="button" data-toggle="collapse" data-target="#{{ac.id}}" data-parent="#accordion_analyze" aria-expanded="true" aria-controls="{{ac.id}}"> 
+<!--				<a vl-tabindex="{{ac.tabIndex}}" role="{{ac.role}}" aria-label="{{ac.ariaLabel}}" data-toggle="collapse" data-parent="#accordion_analyze" href="#{{ac.id}}" aria-expanded="true" aria-controls="{{ac.id}}" ng-click="switchAcc($index)">-->
+					<div class="panel-heading panel-default{{$index+1}}" role="tab" id="{{ac.heading}}" ng-class="accordionIndex == $index ? 'active' : ''"  ng-click="switchAcc($event, $index)" >
+						<h4 class="panel-title">
+								{{ac.pannel}}
+						</h4>
+						<div class="tail active-arrow"></div>
+					</div>
+				</a>
+				<!-- </a> -->
+				<!-- tabindex="{{ac.tabIndex}}" role="{{ac.role}}" aria-label="{{ac.ariaLabel}}" -->
+				<div id="{{ac.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ac.heading}}">
+					<div class="panel-body">
+						<div class="text-note">
+							<div class="user-icon">
+								<span aria-hidden="true" class="text-accordion">{{ac.exportName}}</span>
+							</div>
+						</div>
+						<span role="text" class="panneldesc panneldesc{{$index+1}}">{{ac.text}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
